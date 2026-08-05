@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart | Bhathwari Technologies</title>
+  <meta name="description" content="Review your industrial automation order and request a secure checkout.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="cart-page">
+  <div class="hazard-bar"></div>
+  <header class="site-header cart-header">
+    <nav class="navbar container" aria-label="Cart navigation">
+      <a class="brand" href="{{ url_for('home') }}"><span class="brand-mark">□</span><span class="brand-full">BHATHWARI TECHNOLOGIES</span></a>
+      <div class="checkout-stepper" aria-label="Checkout progress"><span class="is-current">1. Cart</span><i></i><span>2. Delivery</span><i></i><span>3. Payment</span></div>
+      <a class="cart-return" href="{{ url_for('home') }}">← Continue shopping</a>
+    </nav>
+  </header>
+
+  <main class="cart-main container">
+    <div class="cart-title-row">
+      <div><p class="eyebrow">Order review</p><h1>Your shopping cart</h1></div>
+      <p class="cart-title-count"><span data-cart-count>0</span> items selected</p>
+    </div>
+    <div class="cart-layout">
+      <section class="cart-items-panel" aria-label="Cart items">
+        <div class="delivery-banner"><span>✓</span><div><strong>Free insured shipping on this order</strong><small>Dispatches from Ahmedabad within 1–2 business days.</small></div></div>
+        <div id="cart-items" class="cart-items"></div>
+        <div id="empty-cart" class="empty-cart" hidden>
+          <div class="empty-cart-icon">□</div><h2>Your cart is waiting</h2><p>Add the components your next build needs. We’ll reserve in-stock inventory for your order.</p><a class="btn btn-primary" href="{{ url_for('home') }}#catalog">Browse catalog</a>
+        </div>
+      </section>
+      <aside class="order-summary" aria-label="Order summary">
+        <h2>Order summary</h2>
+        <div class="summary-line"><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
+        <div class="summary-line"><span>Shipping</span><strong class="is-green" id="shipping">Free</strong></div>
+        <div class="summary-line tax-note"><span>GST</span><span>Calculated at checkout</span></div>
+        <div class="summary-total"><span>Order total</span><strong id="order-total">₹0</strong><small>Price excludes applicable GST</small></div>
+        <button id="checkout-btn" class="checkout-btn" type="button">Proceed to secure checkout <span>→</span></button>
+        <p class="secure-note">🔒 Secure order processing · GST invoice included</p>
+        <div class="payment-row"><span>UPI</span><span>VISA</span><span>Mastercard</span><span>NetBanking</span></div>
+      </aside>
+    </div>
+    <section class="cart-assurance">
+      <div><b>01</b><span><strong>Genuine components</strong>Authorized supply channels and serial verification.</span></div>
+      <div><b>02</b><span><strong>Expert order review</strong>Our engineers validate compatibility before dispatch.</span></div>
+      <div><b>03</b><span><strong>Business-ready paperwork</strong>GST invoice and tracking sent directly to your inbox.</span></div>
+    </section>
+  </main>
+  <footer class="cart-footer"><div class="container"><span>© 2026 Bhathwari Technologies</span><span>Need help? <a href="mailto:sales@bhathwaritech.in">sales@bhathwaritech.in</a></span></div></footer>
+  <div class="toast" role="status" aria-live="polite"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="toast-text">Cart updated</span></div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

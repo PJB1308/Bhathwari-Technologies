@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhathwari Technologies | Industrial Automation Supply</title>
+<meta name="description" content="Panasonic PLCs, servo motors, HMI displays and VFD drives for the factory floor. Pan-India delivery with GST invoicing.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="hazard-bar"></div>
+
+<header class="site-header">
+  <nav class="navbar container" aria-label="Primary">
+    <a class="brand" href="#top">
+      <span class="brand-mark">&#9635;</span>
+      <span class="brand-full">BHATHWARI TECHNOLOGIES</span>
+    </a>
+
+    <div class="nav-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="search" placeholder="Search PLCs, motors, drives…" aria-label="Search products" autocomplete="off">
+    </div>
+
+    <div class="nav-actions">
+      <a class="login-link" href="{{ url_for('login') }}">Log in</a>
+      <button class="nav-toggle" aria-label="Toggle search" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+      <a class="cart-btn" href="{{ url_for('cart') }}" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        Cart
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Industrial Automation Supply Co.</p>
+        <h1>Precision components for<br>the <em>factory floor.</em></h1>
+        <p>Genuine PLCs, servo drives, HMI panels and VFDs — sourced, stocked and shipped across India with same-week dispatch on in-stock SKUs.</p>
+        <div class="hero-ctas">
+          <a href="#catalog" class="btn btn-primary">Browse catalog</a>
+          <a href="#footer" class="btn btn-outline">Request a quote</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <span class="stat-value">640+</span>
+            <span class="stat-label">SKUs in stock</span>
+          </div>
+          <div>
+            <span class="stat-value">40+</span>
+            <span class="stat-label">Brands carried</span>
+          </div>
+          <div>
+            <span class="stat-value">28</span>
+            <span class="stat-label">States shipped to</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 480 420" fill="none">
+          <rect x="40" y="40" width="130" height="90" rx="4" stroke="#3A4250" stroke-width="2"/>
+          <circle cx="60" cy="60" r="4" fill="#F5A623"/>
+          <circle cx="150" cy="60" r="4" fill="#F5A623"/>
+          <line x1="60" y1="80" x2="150" y2="80" stroke="#3A4250" stroke-width="2"/>
+          <line x1="60" y1="95" x2="120" y2="95" stroke="#3A4250" stroke-width="2"/>
+          <line x1="60" y1="110" x2="140" y2="110" stroke="#3A4250" stroke-width="2"/>
+
+          <rect x="300" y="70" width="110" height="80" rx="4" stroke="#3A4250" stroke-width="2"/>
+          <circle cx="355" cy="110" r="22" stroke="#F5A623" stroke-width="2"/>
+          <circle cx="355" cy="110" r="4" fill="#F5A623"/>
+
+          <rect x="70" y="230" width="150" height="110" rx="4" stroke="#F5A623" stroke-width="2"/>
+          <line x1="90" y1="255" x2="200" y2="255" stroke="#3A4250" stroke-width="2"/>
+          <line x1="90" y1="275" x2="180" y2="275" stroke="#3A4250" stroke-width="2"/>
+          <line x1="90" y1="295" x2="200" y2="295" stroke="#3A4250" stroke-width="2"/>
+          <line x1="90" y1="315" x2="150" y2="315" stroke="#3A4250" stroke-width="2"/>
+
+          <rect x="280" y="240" width="120" height="90" rx="4" stroke="#3A4250" stroke-width="2"/>
+          <rect x="298" y="256" width="84" height="30" rx="2" stroke="#F5A623" stroke-width="2"/>
+          <circle cx="310" cy="304" r="8" stroke="#3A4250" stroke-width="2"/>
+          <circle cx="336" cy="304" r="8" stroke="#3A4250" stroke-width="2"/>
+          <circle cx="362" cy="304" r="8" stroke="#3A4250" stroke-width="2"/>
+
+          <path d="M170 85 H240 V110 H300" stroke="#3A4250" stroke-width="2"/>
+          <path d="M105 130 V230" stroke="#3A4250" stroke-width="2"/>
+          <path d="M355 150 V240" stroke="#3A4250" stroke-width="2"/>
+          <path d="M220 285 H280" stroke="#3A4250" stroke-width="2"/>
+
+          <circle cx="240" cy="97" r="3" fill="#2FA84F"/>
+          <circle cx="105" cy="180" r="3" fill="#2FA84F"/>
+          <circle cx="355" cy="195" r="3" fill="#2FA84F"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-strip">
+    <div class="container">
+      <ul>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7h-9M14 17H5M22 12H2"></path><circle cx="17" cy="7" r="3"></circle><circle cx="9" cy="17" r="3"></circle></svg>
+          Bulk & OEM pricing
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><path d="M16 8h4l3 3v5h-7V8z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+          Pan-India delivery
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+          GST invoicing
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"></path></svg>
+          1-year replacement warranty
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="catalog">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Catalog</p>
+          <h2>Featured products</h2>
+          <p>Frequently reordered components, held in stock at our Ahmedabad warehouse.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filter by category">
+          <button class="filter-chip is-active" data-category="all" aria-pressed="true">All</button>
+          <button class="filter-chip" data-category="controllers" aria-pressed="false">Controllers</button>
+          <button class="filter-chip" data-category="motors" aria-pressed="false">Motors</button>
+          <button class="filter-chip" data-category="displays" aria-pressed="false">Displays</button>
+          <button class="filter-chip" data-category="drives" aria-pressed="false">Drives</button>
+        </div>
+      </div>
+
+      <div class="product-grid">
+
+        <article class="product-card reveal" data-id="plc" data-name="Panasonic PLC Controller" data-category="controllers" data-sku="BT-PLC-4402" data-price="32999">
+          <div class="product-media">
+            <span class="stock-badge">In stock</span>
+            <span class="pin tl"></span><span class="pin tr"></span><span class="pin bl"></span><span class="pin br"></span>
+            <svg viewBox="0 0 200 150" fill="none" aria-hidden="true">
+              <rect x="30" y="30" width="140" height="90" rx="4" stroke="#F5A623" stroke-width="2.5"/>
+              <circle cx="48" cy="46" r="3.5" fill="#2FA84F"/>
+              <circle cx="62" cy="46" r="3.5" fill="#F5A623"/>
+              <circle cx="76" cy="46" r="3.5" fill="#3A4250"/>
+              <rect x="115" y="38" width="42" height="24" rx="2" stroke="#3A4250" stroke-width="2"/>
+              <line x1="42" y1="70" x2="158" y2="70" stroke="#3A4250" stroke-width="1.6"/>
+              <line x1="42" y1="82" x2="158" y2="82" stroke="#3A4250" stroke-width="1.6"/>
+              <line x1="42" y1="94" x2="158" y2="94" stroke="#3A4250" stroke-width="1.6"/>
+              <line x1="42" y1="106" x2="120" y2="106" stroke="#3A4250" stroke-width="1.6"/>
+            </svg>
+          </div>
+          <div class="product-body">
+            <span class="product-sku">SKU BT-PLC-4402</span>
+            <h3>Panasonic PLC Controller</h3>
+            <p class="product-spec">FP-XH series · 32 I/O · Ethernet + RS485</p>
+            <div class="product-footer">
+              <span class="product-price">&#8377;32,999</span>
+              <div class="product-purchase">
+                <label class="quantity-select-label">Qty <select class="quantity-select" aria-label="Quantity for Panasonic PLC Controller"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option></select></label>
+                <button class="add-btn" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <span class="add-btn-label">Add to Cart</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card reveal" data-id="servo" data-name="Servo Motor" data-category="motors" data-sku="BT-SRV-1187" data-price="9999">
+          <div class="product-media">
+            <span class="stock-badge">In stock</span>
+            <span class="pin tl"></span><span class="pin tr"></span><span class="pin bl"></span><span class="pin br"></span>
+            <svg viewBox="0 0 200 150" fill="none" aria-hidden="true">
+              <rect x="55" y="45" width="60" height="60" rx="6" stroke="#F5A623" stroke-width="2.5"/>
+              <line x1="63" y1="45" x2="63" y2="105" stroke="#3A4250" stroke-width="1.4"/>
+              <line x1="75" y1="45" x2="75" y2="105" stroke="#3A4250" stroke-width="1.4"/>
+              <line x1="87" y1="45" x2="87" y2="105" stroke="#3A4250" stroke-width="1.4"/>
+              <line x1="99" y1="45" x2="99" y2="105" stroke="#3A4250" stroke-width="1.4"/>
+              <rect x="115" y="62" width="26" height="26" rx="3" stroke="#3A4250" stroke-width="2"/>
+              <rect x="141" y="70" width="18" height="10" stroke="#3A4250" stroke-width="2"/>
+              <circle cx="85" cy="75" r="10" stroke="#2FA84F" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="product-body">
+            <span class="product-sku">SKU BT-SRV-1187</span>
+            <h3>Servo Motor</h3>
+            <p class="product-spec">750 W AC servo · 3000 RPM · with encoder</p>
+            <div class="product-footer">
+              <span class="product-price">&#8377;9,999</span>
+              <div class="product-purchase">
+                <label class="quantity-select-label">Qty <select class="quantity-select" aria-label="Quantity for Servo Motor"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option></select></label>
+                <button class="add-btn" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <span class="add-btn-label">Add to Cart</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card reveal" data-id="hmi" data-name="HMI Display" data-category="displays" data-sku="BT-HMI-2903" data-price="14999">
+          <div class="product-media">
+            <span class="stock-badge">In stock</span>
+            <span class="pin tl"></span><span class="pin tr"></span><span class="pin bl"></span><span class="pin br"></span>
+            <svg viewBox="0 0 200 150" fill="none" aria-hidden="true">
+              <rect x="45" y="30" width="110" height="85" rx="5" stroke="#F5A623" stroke-width="2.5"/>
+              <rect x="55" y="40" width="90" height="58" rx="2" stroke="#3A4250" stroke-width="2"/>
+              <line x1="65" y1="50" x2="105" y2="50" stroke="#3A4250" stroke-width="1.6"/>
+              <line x1="65" y1="60" x2="120" y2="60" stroke="#3A4250" stroke-width="1.6"/>
+              <line x1="65" y1="70" x2="95" y2="70" stroke="#3A4250" stroke-width="1.6"/>
+              <circle cx="100" cy="106" r="3" fill="#2FA84F"/>
+            </svg>
+          </div>
+          <div class="product-body">
+            <span class="product-sku">SKU BT-HMI-2903</span>
+            <h3>HMI Display</h3>
+            <p class="product-spec">7" capacitive touch · 65k colour · USB + serial</p>
+            <div class="product-footer">
+              <span class="product-price">&#8377;14,999</span>
+              <div class="product-purchase">
+                <label class="quantity-select-label">Qty <select class="quantity-select" aria-label="Quantity for HMI Display"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option></select></label>
+                <button class="add-btn" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <span class="add-btn-label">Add to Cart</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card reveal" data-id="vfd" data-name="VFD Drive" data-category="drives" data-sku="BT-VFD-6610" data-price="12999">
+          <div class="product-media">
+            <span class="stock-badge">In stock</span>
+            <span class="pin tl"></span><span class="pin tr"></span><span class="pin bl"></span><span class="pin br"></span>
+            <svg viewBox="0 0 200 150" fill="none" aria-hidden="true">
+              <rect x="50" y="32" width="100" height="86" rx="4" stroke="#F5A623" stroke-width="2.5"/>
+              <rect x="62" y="44" width="76" height="22" rx="2" stroke="#3A4250" stroke-width="2"/>
+              <text x="100" y="59" text-anchor="middle" font-family="monospace" font-size="11" fill="#2FA84F">50.0Hz</text>
+              <circle cx="72" cy="90" r="9" stroke="#3A4250" stroke-width="2"/>
+              <circle cx="100" cy="90" r="9" stroke="#3A4250" stroke-width="2"/>
+              <circle cx="128" cy="90" r="9" stroke="#3A4250" stroke-width="2"/>
+              <line x1="150" y1="40" x2="160" y2="40" stroke="#3A4250" stroke-width="2"/>
+              <line x1="150" y1="50" x2="160" y2="50" stroke="#3A4250" stroke-width="2"/>
+              <line x1="150" y1="60" x2="160" y2="60" stroke="#3A4250" stroke-width="2"/>
+              <line x1="150" y1="70" x2="160" y2="70" stroke="#3A4250" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="product-body">
+            <span class="product-sku">SKU BT-VFD-6610</span>
+            <h3>VFD Drive</h3>
+            <p class="product-spec">5.5 kW · 3-phase · V/F & vector control</p>
+            <div class="product-footer">
+              <span class="product-price">&#8377;12,999</span>
+              <div class="product-purchase">
+                <label class="quantity-select-label">Qty <select class="quantity-select" aria-label="Quantity for VFD Drive"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option></select></label>
+                <button class="add-btn" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <span class="add-btn-label">Add to Cart</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="empty-state">No components match that search — try a different keyword or clear filters.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="footer">
+  <div class="hazard-bar"></div>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="#top">
+        <span class="brand-mark">&#9635;</span>
+        <span class="brand-full">BHATHWARI TECHNOLOGIES</span>
+      </a>
+      <p>Industrial automation components — PLCs, drives, motors and HMIs — supplied and supported across India.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Catalog</h4>
+      <ul>
+        <li><a href="#catalog">Controllers</a></li>
+        <li><a href="#catalog">Motors</a></li>
+        <li><a href="#catalog">Displays</a></li>
+        <li><a href="#catalog">Drives</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:sales@bhathwaritech.in">sales@bhathwaritech.in</a></li>
+        <li><a href="tel:+9179XXXXXXX">+91 79-XXXX-XXXX</a></li>
+        <li>Ahmedabad, Gujarat, IN</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; 2026 Bhathwari Technologies</span>
+    <span>GSTIN registered · dispatch pan-India</span>
+  </div>
+</footer>
+
+<div class="toast" role="status" aria-live="polite">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+  <span class="toast-text">Added to cart</span>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

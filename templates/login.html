@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in | Bhathwari Technologies</title>
+  <meta name="description" content="Log in to Bhathwari Technologies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="login-page">
+  <div class="hazard-bar"></div>
+  <main class="login-layout container">
+    <a class="brand login-brand" href="{{ url_for('home') }}"><span class="brand-mark">&#9633;</span><span class="brand-full">BHATHWARI TECHNOLOGIES</span></a>
+    <section class="login-card" aria-labelledby="login-title">
+      <p class="eyebrow">Customer account</p>
+      <h1 id="login-title">Welcome back</h1>
+      <p class="login-intro">Log in to view orders, saved components and account details.</p>
+      <form id="login-form" class="login-form">
+        <label>Email address<input id="login-email" type="email" autocomplete="email" required placeholder="you@company.com"></label>
+        <label>Password<input id="login-password" type="password" autocomplete="current-password" required placeholder="Enter your password"></label>
+        <button class="login-submit" type="submit">Log in <span>→</span></button>
+        <p id="login-message" class="login-message" role="status" aria-live="polite"></p>
+      </form>
+      <p class="login-help">New customer? Your account creation flow can be added through Supabase Auth.</p>
+      <a class="login-back" href="{{ url_for('home') }}">← Back to catalog</a>
+    </section>
+  </main>
+  <!-- Add your publishable Supabase URL and anon key in static/js/login.js. Never expose a service-role key in the browser. -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>
