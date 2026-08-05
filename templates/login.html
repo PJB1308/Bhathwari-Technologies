@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Log in | Bhathwari Technologies</title>
-  <meta name="description" content="Log in to Bhathwari Technologies.">
+  <title>Log in / Sign up | Bhathwari Technologies</title>
+  <meta name="description" content="Log in or sign up to Bhathwari Technologies.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,16 +15,21 @@
   <main class="login-layout container">
     <a class="brand login-brand" href="{{ url_for('home') }}"><span class="brand-mark">&#9633;</span><span class="brand-full">BHATHWARI TECHNOLOGIES</span></a>
     <section class="login-card" aria-labelledby="login-title">
-      <p class="eyebrow">Customer account</p>
+      <div class="login-tabs" role="tablist" aria-label="Account Action">
+        <button type="button" id="tab-login" class="login-tab-btn is-active" role="tab" aria-selected="true" data-mode="login">Log in</button>
+        <button type="button" id="tab-signup" class="login-tab-btn" role="tab" aria-selected="false" data-mode="signup">Sign up</button>
+      </div>
+      <p class="eyebrow" id="login-eyebrow">Customer account</p>
       <h1 id="login-title">Welcome back</h1>
-      <p class="login-intro">Log in to view orders, saved components and account details.</p>
+      <p class="login-intro" id="login-intro">Log in to view orders, saved components and account details.</p>
       <form id="login-form" class="login-form">
+        <label id="name-field" class="is-signup-only" style="display:none;">Full name<input id="login-name" type="text" autocomplete="name" placeholder="Alex Morgan"></label>
         <label>Email address<input id="login-email" type="email" autocomplete="email" required placeholder="you@company.com"></label>
         <label>Password<input id="login-password" type="password" autocomplete="current-password" required placeholder="Enter your password"></label>
-        <button class="login-submit" type="submit">Log in <span>→</span></button>
-        <p id="login-message" class="login-message" role="status" aria-live="polite"></p>
+        <button class="login-submit" type="submit" id="login-submit">Log in <span>→</span></button>
+        <div id="login-message" class="login-message" role="status" aria-live="polite"></div>
       </form>
-      <p class="login-help">New customer? Your account creation flow can be added through Supabase Auth.</p>
+      <p class="login-help" id="login-help">New customer? Select <strong>Sign up</strong> tab above or enter your email to get started.</p>
       <a class="login-back" href="{{ url_for('home') }}">← Back to catalog</a>
     </section>
   </main>

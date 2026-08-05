@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Orders | Bhathwari Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="cart-page">
+  <div class="hazard-bar"></div>
+  <header class="site-header cart-header">
+    <nav class="navbar container" aria-label="Orders navigation">
+      <a class="brand" href="{{ url_for('home') }}"><span class="brand-mark">□</span><span class="brand-full">BHATHWARI TECHNOLOGIES</span></a>
+      <a class="cart-return" href="{{ url_for('cart') }}">← Return to cart</a>
+    </nav>
+  </header>
+  <main class="orders-main container">
+    <div class="orders-title-row">
+      <div><p class="eyebrow">Account</p><h1>My orders</h1></div>
+      <a class="btn btn-primary" href="{{ url_for('home') }}#catalog">Shop products</a>
+    </div>
+    <section class="orders-panel" aria-live="polite">
+      <p id="orders-loading" class="orders-message">Loading your orders…</p>
+      <div id="orders-list" class="orders-list" hidden></div>
+      <div id="orders-empty" class="orders-empty" hidden>
+        <h2>No orders yet</h2>
+        <p>Your completed orders will appear here.</p>
+        <a class="btn btn-primary" href="{{ url_for('home') }}#catalog">Browse catalog</a>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="{{ url_for('static', filename='js/orders.js') }}"></script>
+</body>
+</html>

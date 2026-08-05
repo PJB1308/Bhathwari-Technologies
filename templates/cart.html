@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Cart | Bhathwari Technologies</title>
+  <title>Your Cart & Checkout | Bhathwari Technologies</title>
   <meta name="description" content="Review your industrial automation order and request a secure checkout.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,43 +15,188 @@
   <header class="site-header cart-header">
     <nav class="navbar container" aria-label="Cart navigation">
       <a class="brand" href="{{ url_for('home') }}"><span class="brand-mark">□</span><span class="brand-full">BHATHWARI TECHNOLOGIES</span></a>
-      <div class="checkout-stepper" aria-label="Checkout progress"><span class="is-current">1. Cart</span><i></i><span>2. Delivery</span><i></i><span>3. Payment</span></div>
+      <div class="checkout-stepper" id="checkout-stepper" aria-label="Checkout progress">
+        <span class="step-indicator is-current" id="step-nav-1">1. Cart</span>
+        <i></i>
+        <span class="step-indicator" id="step-nav-2">2. Delivery</span>
+        <i></i>
+        <span class="step-indicator" id="step-nav-3">3. Payment</span>
+      </div>
+      <div id="auth-nav-slot"></div>
       <a class="cart-return" href="{{ url_for('home') }}">← Continue shopping</a>
     </nav>
   </header>
 
   <main class="cart-main container">
     <div class="cart-title-row">
-      <div><p class="eyebrow">Order review</p><h1>Your shopping cart</h1></div>
-      <p class="cart-title-count"><span data-cart-count>0</span> items selected</p>
+      <div>
+        <p class="eyebrow" id="cart-eyebrow">Order review</p>
+        <h1 id="cart-main-title">Your shopping cart</h1>
+      </div>
+      <p class="cart-title-count" id="cart-title-count"><span data-cart-count>0</span> items selected</p>
     </div>
+
     <div class="cart-layout">
-      <section class="cart-items-panel" aria-label="Cart items">
-        <div class="delivery-banner"><span>✓</span><div><strong>Free insured shipping on this order</strong><small>Dispatches from Ahmedabad within 1–2 business days.</small></div></div>
-        <div id="cart-items" class="cart-items"></div>
-        <div id="empty-cart" class="empty-cart" hidden>
-          <div class="empty-cart-icon">□</div><h2>Your cart is waiting</h2><p>Add the components your next build needs. We’ll reserve in-stock inventory for your order.</p><a class="btn btn-primary" href="{{ url_for('home') }}#catalog">Browse catalog</a>
+      <!-- Left Panel: Dynamic Step Content -->
+      <section class="cart-items-panel" aria-label="Checkout content">
+        <!-- Step 1: Cart Items -->
+        <div id="panel-step-1" class="checkout-panel">
+          <div class="delivery-banner">
+            <span>✓</span>
+            <div>
+              <strong>Free insured shipping on this order</strong>
+              <small>Dispatches from Ahmedabad within 1–2 business days.</small>
+            </div>
+          </div>
+          <div id="cart-items" class="cart-items"></div>
+          <div id="empty-cart" class="empty-cart" hidden>
+            <div class="empty-cart-icon">□</div>
+            <h2>Your cart is waiting</h2>
+            <p>Add the components your next build needs. We’ll reserve in-stock inventory for your order.</p>
+            <a class="btn btn-primary" href="{{ url_for('home') }}#catalog">Browse catalog</a>
+          </div>
+        </div>
+
+        <!-- Step 2: Delivery Details Form -->
+        <div id="panel-step-2" class="checkout-panel" style="display:none;">
+          <div class="checkout-step-head">
+            <h2>Shipping & Contact Details</h2>
+            <p>Enter dispatch destination and contact information for order verification.</p>
+          </div>
+          <section class="saved-addresses" id="saved-addresses" hidden aria-label="Saved addresses">
+            <div class="saved-addresses-head">
+              <strong>Saved addresses</strong>
+              <small>Select one to fill in the delivery details.</small>
+            </div>
+            <div class="saved-addresses-list" id="saved-addresses-list"></div>
+          </section>
+          <form id="delivery-form" class="delivery-form">
+            <div class="form-row duo">
+              <label>Full Name <span class="req">*</span>
+                <input type="text" id="ship-name" required placeholder="Priyansh Bhuva">
+              </label>
+              <label>Phone Number <span class="req">*</span>
+                <input type="tel" id="ship-phone" required placeholder="+91 98765 43210">
+              </label>
+            </div>
+            <div class="form-row duo">
+              <label>Company / Business Name (Optional)
+                <input type="text" id="ship-company" placeholder="e.g. BT Automation Pvt Ltd">
+              </label>
+              <label>GSTIN for Tax Invoice (Optional)
+                <input type="text" id="ship-gstin" placeholder="24AAAAA0000A1Z5">
+              </label>
+            </div>
+            <div class="form-row">
+              <label>Street Address / Industrial Estate <span class="req">*</span>
+                <input type="text" id="ship-address" required placeholder="Plot 42, GIDC Phase III, Vatva">
+              </label>
+            </div>
+            <div class="form-row trio">
+              <label>City <span class="req">*</span>
+                <input type="text" id="ship-city" required placeholder="Ahmedabad">
+              </label>
+              <label>State <span class="req">*</span>
+                <input type="text" id="ship-state" required placeholder="Gujarat">
+              </label>
+              <label>Pincode <span class="req">*</span>
+                <input type="text" id="ship-pincode" required placeholder="382445">
+              </label>
+            </div>
+            <label class="save-address-option" for="save-address">
+              <input type="checkbox" id="save-address">
+              <span>
+                <strong>Save this address</strong>
+                <small>Save it to your account for a faster checkout next time.</small>
+              </span>
+            </label>
+            <div class="form-row save-address-label" id="save-address-label" hidden>
+              <label for="address-label">Save this address as
+                <input type="text" id="address-label" maxlength="40" placeholder="e.g. Home, Office, Warehouse">
+              </label>
+            </div>
+            <div class="step-actions-row">
+              <button type="button" class="btn btn-outline" id="back-to-step-1">← Back to Cart</button>
+              <button type="submit" class="btn btn-primary">Proceed to Payment →</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Step 3: Razorpay Payment -->
+        <div id="panel-step-3" class="checkout-panel" style="display:none;">
+          <div class="checkout-step-head">
+            <h2>Secure payment</h2>
+            <p>Continue to Razorpay’s test checkout to choose UPI, card, or net banking.</p>
+          </div>
+          <div class="razorpay-checkout-card">
+            <span class="pay-badge">Razorpay test mode</span>
+            <strong>Pay securely with Razorpay</strong>
+            <p>Your payment method is selected in the Razorpay checkout window. No card or UPI details are collected on this site.</p>
+          </div>
+          <div class="delivery-summary-box" id="delivery-summary-box">
+            <strong>Delivering to:</strong>
+            <p id="summary-address-text">Priyansh Bhuva · Ahmedabad, Gujarat</p>
+          </div>
+          <div class="step-actions-row">
+            <button type="button" class="btn btn-outline" id="back-to-step-2">← Back to Delivery</button>
+            <button type="button" class="btn btn-primary" id="place-order-btn">Pay securely with Razorpay →</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Success Screen -->
+        <div id="panel-step-4" class="checkout-panel" style="display:none;">
+          <div class="success-screen">
+            <div class="success-icon">✓</div>
+            <h2>Order Placed Successfully!</h2>
+            <div class="order-badges-row">
+              <p class="order-id-badge">Order Reference: <strong id="placed-order-id">#BT-849102</strong></p>
+              <p class="order-id-badge" id="rzp-payment-id-wrapper" style="display:none;">Payment ID: <strong id="placed-payment-id">pay_...</strong></p>
+            </div>
+            <p class="success-text">Thank you for your order. A confirmation email with GST invoice details and dispatch tracking will be sent to your inbox.</p>
+            <div class="success-actions">
+              <a href="{{ url_for('home') }}" class="btn btn-primary">Return to Catalog</a>
+            </div>
+          </div>
         </div>
       </section>
+
+      <!-- Right Panel: Order Summary -->
       <aside class="order-summary" aria-label="Order summary">
         <h2>Order summary</h2>
         <div class="summary-line"><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
         <div class="summary-line"><span>Shipping</span><strong class="is-green" id="shipping">Free</strong></div>
         <div class="summary-line tax-note"><span>GST</span><span>Calculated at checkout</span></div>
-        <div class="summary-total"><span>Order total</span><strong id="order-total">₹0</strong><small>Price excludes applicable GST</small></div>
-        <button id="checkout-btn" class="checkout-btn" type="button">Proceed to secure checkout <span>→</span></button>
+        <div class="summary-total">
+          <span>Order total</span>
+          <strong id="order-total">₹0</strong>
+          <small>Price excludes applicable GST</small>
+        </div>
+        <button id="checkout-btn" class="checkout-btn" type="button">Proceed to Delivery <span>→</span></button>
         <p class="secure-note">🔒 Secure order processing · GST invoice included</p>
         <div class="payment-row"><span>UPI</span><span>VISA</span><span>Mastercard</span><span>NetBanking</span></div>
       </aside>
     </div>
+
     <section class="cart-assurance">
       <div><b>01</b><span><strong>Genuine components</strong>Authorized supply channels and serial verification.</span></div>
       <div><b>02</b><span><strong>Expert order review</strong>Our engineers validate compatibility before dispatch.</span></div>
       <div><b>03</b><span><strong>Business-ready paperwork</strong>GST invoice and tracking sent directly to your inbox.</span></div>
     </section>
   </main>
-  <footer class="cart-footer"><div class="container"><span>© 2026 Bhathwari Technologies</span><span>Need help? <a href="mailto:sales@bhathwaritech.in">sales@bhathwaritech.in</a></span></div></footer>
-  <div class="toast" role="status" aria-live="polite"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="toast-text">Cart updated</span></div>
+
+  <footer class="cart-footer">
+    <div class="container">
+      <span>© 2026 Bhathwari Technologies</span>
+      <span>Need help? <a href="mailto:sales@bhathwaritech.in">sales@bhathwaritech.in</a></span>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span class="toast-text">Cart updated</span>
+  </div>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

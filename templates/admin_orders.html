@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Orders | Bhathwari Technologies</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="cart-page">
+  <div class="hazard-bar"></div>
+  <header class="site-header cart-header">
+    <nav class="navbar container" aria-label="Admin navigation">
+      <a class="brand" href="{{ url_for('home') }}"><span class="brand-mark">□</span><span class="brand-full">BHATHWARI TECHNOLOGIES</span></a>
+      <a class="cart-return" href="{{ url_for('admin_logout') }}">Log out</a>
+    </nav>
+  </header>
+  <main class="orders-main container">
+    <div class="orders-title-row">
+      <div><p class="eyebrow">Admin</p><h1>Order management</h1></div>
+    </div>
+    <section class="orders-panel admin-orders-panel" aria-live="polite">
+      <p id="admin-orders-loading" class="orders-message">Loading orders…</p>
+      <div id="admin-orders-list" class="orders-list" hidden></div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body>
+</html>
